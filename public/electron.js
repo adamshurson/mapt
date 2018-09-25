@@ -12,17 +12,25 @@ let mainWindow;
 const autoUpdater = require('electron-updater').autoUpdater;
 
 function createWindow() {
-  mainWindow = new BrowserWindow({width: 900, height: 680});
+  mainWindow = new BrowserWindow({
+    frame: false,
+    titleBarStyle: "customButtonsOnHover"
+  });
+  mainWindow.hide();
+  mainWindow.maximize();
   mainWindow.loadURL(
     isDev
       ? 'http://localhost:3000'
       : `file://${path.join(__dirname, '../build/index.html')}`
   );
+  mainWindow.show();
   mainWindow.on('closed', () => (mainWindow = null));
   initAutoUpdate();
 
   // Open the DevTools.
-  mainWindow.webContents.openDevTools();
+  if (isDev) {
+    mainWindow.webContents.openDevTools();
+  }
 }
 
 function initAutoUpdate() {

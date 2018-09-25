@@ -1,0 +1,9 @@
+version: 0.0.1
+files:
+  - url: mapt-setup-0.0.1.exe
+    sha512: CT/1A7uTYyagiu6LFBANW+QJwWtznHOGLWHMuw3JxgaOJ41xlWHdwiNOVJmBAKfF9e4GR2goGER4Mw6YUW7jRQ==
+    size: 40374175
+path: mapt-setup-0.0.1.exe
+sha512: CT/1A7uTYyagiu6LFBANW+QJwWtznHOGLWHMuw3JxgaOJ41xlWHdwiNOVJmBAKfF9e4GR2goGER4Mw6YUW7jRQ==
+sha2: f7278aa3a997465fdea2ab352efbb58bd9307820a39eb7f1d211dfd9bd56c838
+releaseDate: '2018-09-20T17:52:06.369Z'
