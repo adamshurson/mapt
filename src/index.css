@@ -22,3 +22,9 @@ img, svg, a {
 #MenuBar {
   -webkit-app-region: drag;
 }
+.h-fit {
+  height: fit-content;
+}
+textarea {
+  resize: none !important;
+}

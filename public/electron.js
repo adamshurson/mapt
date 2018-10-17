@@ -1,14 +1,13 @@
 const electron = require('electron');
 const app = electron.app;
 const BrowserWindow = electron.BrowserWindow;
-
+const ipcMain = electron.ipcMain;
+const fork = require('child_process').fork;
 const path = require('path');
 const url = require('url');
 const isDev = require('electron-is-dev');
 const notifier = require('node-notifier');
-
 let mainWindow;
-
 const autoUpdater = require('electron-updater').autoUpdater;
 
 function createWindow() {

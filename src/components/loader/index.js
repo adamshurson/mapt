@@ -1,6 +1,6 @@
 import React from 'react';
-import loadinglogo from "../../logo-loading.svg";
 import ReactCSSTransitionGroup from "react-addons-css-transition-group";
+import Logo from '../logo';
 
 function Loader(props) {
     return (
@@ -10,8 +10,9 @@ function Loader(props) {
         transitionLeaveTimeout={1000}>
         {
             props.isLoading
-            ? <div className="absolute z-10 bg-grey-darkest pin flex items-center justify-center">
-                <img width="20%" src={loadinglogo} className="App-logo" alt="logo" />
+            ? <div className={props.bgClass + " absolute z-10 pin flex flex-col items-center justify-center"}>
+                <Logo loading={true} width="20%" />
+                <h4 className="font-normal text-grey-darkest mt-12">{Math.round(props.percent)}%</h4>
             </div>
             : null
         }

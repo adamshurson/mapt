@@ -3,15 +3,16 @@ import {Route, Link, withRouter} from "react-router-dom";
 import './App.css';
 import './tailwind.css';
 import Loader from "./components/loader";
-import logo from "./logo.svg";
-import loading from "./logo-loading.svg";
-import {library} from '@fortawesome/fontawesome-svg-core'
-import {fas} from '@fortawesome/free-solid-svg-icons'
+import {library} from '@fortawesome/fontawesome-svg-core';
+import {fas} from '@fortawesome/free-solid-svg-icons';
+import {far} from '@fortawesome/free-regular-svg-icons';
+import Logo from './components/logo';
 import WindowMenu from "./components/windowmenu";
 import StepPearl from "./pearls/step";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 library.add(fas);
+library.add(far);
 
 class App extends React.Component {
     constructor(props) {
@@ -51,11 +52,10 @@ class App extends React.Component {
     render() {
         return (
             <div className="App w-screen h-screen flex overflow-hidden">
-                <Loader isLoading={!this.state.isMounted}/>
+                <Loader bgClass="bg-grey-darkest" isLoading={!this.state.isMounted}/>
                 <div className="flex flex-col w-1/2 md:w-1/3 xl:w-1/4 p-4 bg-grey-darkest shadow-lg">
                     <div className="flex items-center pb-8">
-                        <img width="20%" src={this.state.isLoading ? loading : logo} className="App-logo"
-                             alt="logo"/>
+                        <Logo width="20%"/>
                         <h1 className="ml-auto font-normal text-white">MAPT</h1>
                     </div>
                     <div className="flex-1 overflow-y-auto">
@@ -113,7 +113,7 @@ class App extends React.Component {
                 </div>
                 <div className="flex flex-col flex-1">
                     <WindowMenu/>
-                    <div className="flex-1 p-4 pt-0">
+                    <div className="flex-1 p-4 pt-0 max-h-screen">
                         {
                             this.state.steps.map((step, index) => {
                                 if (step.component !== undefined) {
